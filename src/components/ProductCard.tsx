@@ -13,7 +13,7 @@ import { CartContext } from "../common/store";
 import { addAction } from "../reducers/productActions";
 
 export default function ItemCard(product: Product) {
-  const [state, dispatch] = useContext(CartContext);
+  const [, dispatch] = useContext(CartContext);
   const handleAdd = () => dispatch(addAction(product));
 
   return (

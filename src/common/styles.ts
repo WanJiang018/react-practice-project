@@ -22,14 +22,11 @@ export const theme = createTheme({
     h5: {},
     subtitle1: {},
     subtitle2: {},
-    subtitle3: {},
     body1: {},
     body2: {},
     button: {},
-    captionHint: {},
     caption: {},
   },
-  custom: {},
   components: {
     MuiAppBar: {
       styleOverrides: {

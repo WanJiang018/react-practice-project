@@ -12,7 +12,7 @@ import { CartContext } from "../common/store";
 import { CartProduct } from "../models/product";
 
 export default function ProductRow(cartProduct: CartProduct) {
-  const [state, dispatch] = useContext(CartContext);
+  const [, dispatch] = useContext(CartContext);
 
   const handleRemove = () => dispatch(removeAction(cartProduct.id));
 

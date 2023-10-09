@@ -23,7 +23,7 @@ export const Content = styled("main")(() => ({
 
 export default function App() {
   const contextValue = useReducer(productReducer, initState);
-  const [state, dispatch] = contextValue;
+  const [state] = contextValue;
 
   return (
     <ThemeProvider theme={theme}>
