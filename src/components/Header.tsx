@@ -1,14 +1,28 @@
 import React, { useContext } from "react";
-import { AppBar, Box, IconButton, Typography, styled } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  IconButton,
+  MenuItem,
+  Typography,
+  styled,
+} from "@mui/material";
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartContext } from "../common/store";
+import { Link } from "react-router-dom";
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
     border: `2px solid ${theme.palette.background.paper}`,
   },
 }));
+
+const navBarList = [
+  { id: "home", name: "首頁", path: "/" },
+  { id: "about", name: "關於我們", path: "/about" },
+  { id: "album", name: "相簿", path: "/album" },
+];
 
 export default function Header() {
   const [state] = useContext(CartContext);
@@ -22,7 +36,18 @@ export default function Header() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Typography variant="h6">香香麵店</Typography>
+        <Box display="flex">
+          <Typography variant="h6">香香麵店</Typography>
+          {navBarList.map((item) => {
+            return (
+              <MenuItem>
+                <Link key={item.id} to={item.path}>
+                  {item.name}
+                </Link>
+              </MenuItem>
+            );
+          })}
+        </Box>
         <IconButton aria-label="cart">
           <StyledBadge badgeContent={state.cartList.length} color="primary">
             <ShoppingCartIcon />

@@ -12,7 +12,7 @@ import { Product } from "../models/product";
 import { CartContext } from "../common/store";
 import { addAction } from "../reducers/productActions";
 
-export default function ItemCard(product: Product) {
+export default function ProductCard(product: Product) {
   const [, dispatch] = useContext(CartContext);
   const handleAdd = () => dispatch(addAction(product));
 
