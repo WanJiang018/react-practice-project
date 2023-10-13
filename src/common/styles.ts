@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { alpha, createTheme } from "@mui/material";
 
 export const textPrimary = "#08a6bb";
 
@@ -31,6 +31,16 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: "unset",
+        },
+      },
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            backgroundColor: alpha("#08a6bb", 0.4),
+          },
+          backgroundColor: "#f5f5f5",
         },
       },
     },

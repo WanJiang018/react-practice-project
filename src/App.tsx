@@ -6,6 +6,7 @@ import { CartContext } from "./common/store";
 import { initState, productReducer } from "./reducers/productReducers";
 import Header from "./components/Header";
 import { Home, About, Album, AlbumIndex, AlbumPhoto } from "./containers";
+import NotFound from "./containers/NotFound";
 
 export const Content = styled("main")(() => ({
   marginTop: "72px",
@@ -28,6 +29,7 @@ export default function App() {
               <Route index element={<AlbumIndex />} />
               <Route path=":id" element={<AlbumPhoto />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Content>
       </CartContext.Provider>

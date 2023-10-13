@@ -10,7 +10,7 @@ import {
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartContext } from "../common/store";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -40,10 +40,15 @@ export default function Header() {
           <Typography variant="h6">香香麵店</Typography>
           {navBarList.map((item) => {
             return (
-              <MenuItem>
-                <Link key={item.id} to={item.path}>
+              <MenuItem key={item.id}>
+                <NavLink
+                  to={item.path}
+                  style={({ isActive }) => ({
+                    fontWeight: isActive ? "bold" : "",
+                  })}
+                >
                   {item.name}
-                </Link>
+                </NavLink>
               </MenuItem>
             );
           })}
